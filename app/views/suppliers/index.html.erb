@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Suppliers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Address line1</th>
+      <th>Address line2</th>
+      <th>Town</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Title</th>
+      <th>Telephone number</th>
+      <th>Mobile number</th>
+      <th>Subscription</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Supplier name</th>
+      <th>Supplier vat number</th>
+      <th>Industry</th>
+      <th>Authorised responder</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suppliers.each do |supplier| %>
+      <tr>
+        <td><%= supplier.email %></td>
+        <td><%= supplier.first_name %></td>
+        <td><%= supplier.last_name %></td>
+        <td><%= supplier.address_line1 %></td>
+        <td><%= supplier.address_line2 %></td>
+        <td><%= supplier.town %></td>
+        <td><%= supplier.city %></td>
+        <td><%= supplier.country %></td>
+        <td><%= supplier.title %></td>
+        <td><%= supplier.telephone_number %></td>
+        <td><%= supplier.mobile_number %></td>
+        <td><%= supplier.subscription %></td>
+        <td><%= supplier.start_date %></td>
+        <td><%= supplier.end_date %></td>
+        <td><%= supplier.supplier_name %></td>
+        <td><%= supplier.supplier_vat_number %></td>
+        <td><%= supplier.industry %></td>
+        <td><%= supplier.authorised_responder %></td>
+        <td><%= supplier.notes %></td>
+        <td><%= link_to 'Show', supplier %></td>
+        <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
+        <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supplier', new_supplier_path %>
