@@ -1,0 +1,69 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  industry_id: 1
+  company_id: 1
+  date: 2016-11-18
+  town_id: 1
+  datetime: 2016-11-18 22:30:16
+  location_id: 1
+  personal_responsible: MyString
+  nature_of_review: MyString
+  message: MyText
+  account_details: MyString
+  ticket_number: MyString
+  review_type: MyString
+  user_id: 1
+  guest_token: MyString
+  file: MyString
+  archive: false
+  ispublished: false
+  published_date: 2016-11-18 22:30:16
+  change_date: 2016-11-18 22:30:16
+  modified_review: MyText
+  is_modified: false
+  notes: MyText
+  archive_attachment: false
+  is_ticket_open: false
+  jagent_id: 1
+  agent_id: 1
+  old_jagent_id: 1
+  last_published_agent_id: 1
+  admin_sagent_modified: false
+  desired_outcome: MyString
+  old_agent_id: 1
+
+two:
+  title: MyString
+  industry_id: 1
+  company_id: 1
+  date: 2016-11-18
+  town_id: 1
+  datetime: 2016-11-18 22:30:16
+  location_id: 1
+  personal_responsible: MyString
+  nature_of_review: MyString
+  message: MyText
+  account_details: MyString
+  ticket_number: MyString
+  review_type: MyString
+  user_id: 1
+  guest_token: MyString
+  file: MyString
+  archive: false
+  ispublished: false
+  published_date: 2016-11-18 22:30:16
+  change_date: 2016-11-18 22:30:16
+  modified_review: MyText
+  is_modified: false
+  notes: MyText
+  archive_attachment: false
+  is_ticket_open: false
+  jagent_id: 1
+  agent_id: 1
+  old_jagent_id: 1
+  last_published_agent_id: 1
+  admin_sagent_modified: false
+  desired_outcome: MyString
+  old_agent_id: 1

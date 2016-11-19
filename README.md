@@ -14,6 +14,11 @@ FOR MASTER BRANCH:
 1) git push origin master
 2) git pull origin master
 
+For merging the changes of development in master branch
+
+1) git checkout master
+2)git merge development
+
 
 FOR CREATION OF DEVELOPMENT BRANCH
 1) git checkout -b development
