@@ -1,0 +1,54 @@
+  <div class="page-link">
+          <ul>
+              <li><a href="<%= root_path %>">Home</a></li>
+                <li><span>&raquo;</span></li>
+                <li><a href="<%= page_url(Page.first.slug) %>">About Us</a></li>
+                <li><span>&raquo;</span></li>
+                <li><a href="<%= profile_path %>" class="selected"><%= @bc %></a></li>
+            </ul>
+        </div>
+          <div class="section-one">
+          <div class="reports">
+              <div class="heading1">About Us</div>
+               <% @pages.each do |page| %>
+                <a href="<%= page_url(page.slug) %>"><div class="<%= (@sub_action == page.slug ? 'reports2 act' : 'reports2') %>"><%= page.title %></div></a>
+                <% end %>
+                
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+
+               <%unless @performance.blank?%>
+      <%unless @performance.performance_img.blank?%>
+  
+         <div class="polls newpolls">
+       <%= link_to (image_tag @performance.performance_img,:style => "width:236px;height:230px;" ),@performance.worst_performance rescue nil%>
+      </div>
+      <%end%>
+      <%#unless @performance.best_performance.blank?%>
+      <!-- <div class="sectionLeftBot"> -->
+       
+       <%#= image_tag @performance.best_performance rescue nil%>
+      <!-- </div> -->
+    <%#end%>
+    
+  <%else%>
+
+  <%end%>
+
+            <div class="clear"></div>
+         </div>
+        
+          
+            
+      
+            
+           
+            
+            
+            
+            
+   
+
+
+

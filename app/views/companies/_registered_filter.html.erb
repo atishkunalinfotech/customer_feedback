@@ -1,0 +1,44 @@
+   <%= stylesheet_link_tag    "jquery.ui.datepicker" %>
+ <div class="log-head2new">Filter </div>
+               <div class="form-box3new">
+        <% @review = Review.new %>
+		<%= form_for(@review, :url => registered_path(@review)) do |f|%>	
+
+                <div class="login-field-box1">
+                <div class="text-box1">Industry</div>
+                  <%= f.collection_select :industry_id, Industry.order(:title),:id,:title, {:include_blank=>"Select Industry"},:rel => "/industry/companies_by_industry","id"=>"review_industry_id", :class=>"drp-select3new pages", :class=>"field2 slt" %>
+   
+                </div>
+                 <div class="login-field-box1">
+                 <div class="text-box1">Company</div>
+ 			<%= f.collection_select :company_id, @companies, :id, :title,  {:include_blank=>"Select Company"}, :rel => "/company/towns_by_company","id"=>"review_company_id", :class=>"field2 slt"%>
+                </div>
+                 
+               <div class="login-field-box1">
+           
+                	<%= f.submit "Search", :class => "fleft btn2"%>
+           
+                </div>
+                
+                
+                
+            	<div class="clear"></div>
+            	<% end %>
+            </div>
+
+
+<style type="text/css">
+.field2 {
+    background: none repeat scroll 0 0 #e6e6e6;
+    border: 0 solid #dddcdc;
+    box-shadow: 0 4px 2px -1px #dadada;
+    color: #696969;
+    float: left;
+    font-family: corbel;
+    font-size: 13px;
+    height: 25px;
+    margin: 0;
+    padding: 2px 5px;
+    width: 170px;
+}
+</style>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_nature_of_review.title %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @admin_nature_of_review.user_id %>
+</p>
+
+<p>
+  <strong>Review type:</strong>
+  <%= @admin_nature_of_review.review_type %>
+</p>
+
+<%= link_to 'Edit', edit_admin_nature_of_review_path(@admin_nature_of_review) %> |
+<%= link_to 'Back', admin_nature_of_reviews_path %>

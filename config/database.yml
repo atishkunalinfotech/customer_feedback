@@ -4,6 +4,14 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: customer_feedback
+#   host: localhost
+#   pool: 5
+#   username: postgres
+#   password: 
 development:
   adapter: postgresql
   encoding: unicode
@@ -16,8 +24,7 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: customer_feedback
-  host: localhost
+  database: customer_feedback1
   pool: 5
   username: postgres
   password: root

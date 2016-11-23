@@ -1,0 +1,23 @@
+  <div class="cmp-section">
+<%content_for :left do%>
+	<span class="span1">
+	</span>
+<%end%>
+ <div class="max-box">
+
+	<%=render :partial=>"form"%>
+
+<%# content_for :right do%>
+	
+
+  <div class="form-box3 wr-first">
+            	<div class="log-head2">Writing a good review </div>
+               		<%= @page.description.html_safe rescue nil%>
+            	<div class="clear"></div>
+            </div>
+            
+            <div class="clear"></div>
+      <br/><br/><br/>
+   <%#end%>
+ </div>
+</div>

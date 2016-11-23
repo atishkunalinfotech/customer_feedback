@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="/assets/jquery.mCustomScrollbar.css">
+
+  
+  <!-- custom scrollbar plugin -->
+  <script src="/assets/jquery.mCustomScrollbar.concat.min.js"></script>
+  
+  <script>
+    (function($){
+      $(window).load(function(){
+        
+        $("a[rel='load-content']").click(function(e){
+          e.preventDefault();
+          var url=$(this).attr("href");
+          $.get(url,function(data){
+            $(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+            //scroll-to appended content 
+            $(".content").mCustomScrollbar("scrollTo","h2:last");
+          });
+        });
+        
+        $(".content").delegate("a[href='top']","click",function(e){
+          e.preventDefault();
+          $(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+        });
+        
+      });
+    })(jQuery);
+  </script>
+<%content_for :left do%>
+	<span class="span3">
+		 <%=render :partial=> "application/my_account_left"%>
+	</span>
+<%end%>
+
+<div class="reviews-box1">
+            	
+            	<div class="review-center newsize">
+            	<div class="home-grid">
+			<table cellpadding="0" cellspacing="0" class="grid-head-tb2 newsize ">
+                    <tr> 
+                         <td width="20%" align="left">Polls & Bloopers</td>
+                         </tr>
+			</table>
+			<div class="content2 newsize mCustomScrollbar">
+                  <%@polls.each do |poll|%>
+                    <a href="<%= poll_path(poll) %>"> <div class="box1"><p><%= poll.title.truncate(56) rescue nil%></p></div></a>
+					
+						<%end%>
+					
+                               
+                  
+            </div>
+			</div>
+            
+            	</div>
+               
+                <div class="clear"></div>
+                
+            </div>
+
+
+<%content_for :right do%>
+	<span class="span3">
+		<%=render :partial=> "poll_filter"%>
+	</span>
+<%end%>

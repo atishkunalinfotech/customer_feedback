@@ -1,0 +1,1 @@
+json.array! @admin_nature_of_reviews, partial: 'admin_nature_of_reviews/admin_nature_of_review', as: :admin_nature_of_review

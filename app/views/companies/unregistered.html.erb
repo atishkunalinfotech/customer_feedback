@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/assets/jquery.mCustomScrollbar.css">
+
+  
+  <!-- custom scrollbar plugin -->
+  <script src="/assets/jquery.mCustomScrollbar.concat.min.js"></script>
+  
+  <script>
+    (function($){
+      $(window).load(function(){
+        
+        $("a[rel='load-content']").click(function(e){
+          e.preventDefault();
+          var url=$(this).attr("href");
+          $.get(url,function(data){
+            $(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+            //scroll-to appended content 
+            $(".content").mCustomScrollbar("scrollTo","h2:last");
+          });
+        });
+        
+        $(".content").delegate("a[href='top']","click",function(e){
+          e.preventDefault();
+          $(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+        });
+        
+      });
+    })(jQuery);
+  </script>
+<%content_for :left do%>
+	<span class="span3">
+		 <%=render :partial=> "application/my_account_left"%>
+	</span>
+<%end%>
+  <div class="reviews-box1">
+              <div class="overflow12">
+              <div class="review-center">
+              <div class="home-grid">
+      <table cellpadding="0" cellspacing="0" class="grid-head-tb2 ">
+                    <tr> 
+                         <td width="20%" align="center">Company</td>
+                         <td width="20%" align="center" class="bg-image" valign="top">Compliment</td>
+                         <td width="20%" align="center" class="bg-image1" valign="top">Complaint</td>
+                         <td width="20%" align="center" >Total Count</td>
+                          <td width="15%" align="center" class="bg-image2" valign="top">Ratio</td>
+
+                         
+                         <td width="6%"></td>
+                    </tr>
+      </table>
+      <div class="content2 mCustomScrollbar">
+                <table cellpadding="0" cellspacing="0" class="grid-tbl1">
+                          <%@rcompanies.each do |company|%>
+                        <tr>
+                            <td width="20%"><%=company.supplier_name rescue nil%></td>
+                            <td width="22%" align="center"><%=review_compliment_count(company) rescue nil%></td>
+                            <td width="20%" align="center"><%=review_complaint_count(company) rescue nil%></td>
+                             <td width="20%" align="center"><%=review_count(company) rescue nil%>           </td>
+                              <td width="20%" align="center"><%=pure_ratio_count(company) rescue nil%> %</td>
+                           
+                          </td>
+                        </tr>
+                        <% end %>
+                       
+                        </table>
+            </div>
+      </div>
+            
+              </div>
+                </div>
+                <div class="clear"></div>
+                
+            </div>
+
+<%content_for :right do%>
+	<span class="span3">
+		 <%=render :partial=> "unregistered_filter"%>
+	</span>
+<%end%>

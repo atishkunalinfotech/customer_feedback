@@ -1,0 +1,63 @@
+  <div class="section-third">
+ <%unless @top_advertise.blank?%>
+  <%if @top_advertise.image.present? %>
+    <div class="polls newpolls" >
+      <%#= @top_advertise.image rescue nil%>
+      <%=link_to (image_tag @top_advertise.image.url ,:class=>"sectionRightAd",:style => "width:100%;height:230px;" ) , @top_advertise.link if @top_advertise%>
+ 
+    </div>
+  <%else%>
+    <%#=link_to (image_tag @top_advertise.image.url ,:class=>"sectionRightAd",:style=>"width: 300px;") , @top_advertise.link if @top_advertise%>
+  <%end%>
+ <%end%>
+ <%unless @bottom_advertise.blank?%>
+  <%if @bottom_advertise.image.present?%>
+    <div class="polls newpolls" >
+        <%=link_to (image_tag @bottom_advertise.image.url ,:class=>"sectionRightAd", :style => "width:100%;height:230px;" ), @bottom_advertise.link  if @bottom_advertise%>
+    </div>
+  <%else%>
+   <%#=link_to (image_tag @bottom_advertise.image.url ,:class=>"sectionRightAd", :style=>"width: 300px;"), @bottom_advertise.link  if @bottom_advertise%>
+  <%end%>
+ <%end%>
+
+
+  <%if @poll.present?%>
+
+    <div class="first-right-one">
+    		   <%= form_for(@result) do |f| %>
+		    <h3> <%= f.label @poll.title %></h3>
+				
+               
+                
+	        <% @poll.options.each do |option| %>
+          <% if @poll.options.last.id == option.id %>
+			       <div class="right-link-last">
+              <%= f.radio_button :option_id, option.id, :class => "radio" %>
+              <p style="margin-top:-1px">
+              <%= option.answer %>
+              </p>
+				      <%= f.hidden_field :poll_id,value: option.poll_id%>
+			      </div>
+            <% else %>
+             <div class="right-link">
+              <%= f.radio_button :option_id, option.id,  :class => "radio"  %>
+              <p style="margin-top:-1px">
+              <%= option.answer %>
+              </p>
+              <%= f.hidden_field :poll_id,value: option.poll_id%>
+            </div>
+            <% end %>
+			    <% end %>
+				
+				
+		    <%= f.submit "Xema" ,:class=>"btn1" %>
+		    
+		   <% end %>
+  </div>
+  <!--  <div class="first-right-second"></div> -->
+          <div class="clear"></div>
+	<% end %>
+
+
+
+</div>

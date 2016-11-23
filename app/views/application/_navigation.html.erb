@@ -1,0 +1,28 @@
+    <div id="response-menu">
+      <nav id="nav" role="navigation">
+            <div id='cssmenu'>
+                <ul>
+
+          <li class='<%= @active_tab == "Home" ? "active" : "" %>'><a href='<%= root_path %>' class='<%= @active_tab == "Home" ? "active" : "" %>'><span>Home</span></a></li>
+         
+          <% active_tab = @sub_action == "my_reviews" ||  @nav_tab == "reviews"%>
+          <li class='<%= active_tab ? "active" : "" %>' ><a href='<%= user_review_path %>' class='<%= active_tab ? "active" : "" %>' ><span>Reviews</span></a></li>
+          
+          <% if @resource_types%>
+            <li class='<%= @action == "resources" ? "active" : "" %>'> <a href='<%= resource_path(@resource_types.last) %>' class='<%= @action == "resources" ? "active" : "" %>'><span>Resources</span></a></li>
+          <% end %>
+
+          <li class='<%= @action == "faqs" ? "active" : "" %>' ><a href='<%= faqs_url %>' class='<%= @action == "faqs" ? "active" : "" %>' ><span>FAQ</span></a></li>
+          <% if user_signed_in? %>
+           <li class='<%= @active_tab == "my_account" ? "active" : "" %>'> <a href='<%= profile_path %>' class='<%= @active_tab == "my_account" ? "active" : "" %>'><span>My Account</span></a></li>
+          <% else %>
+            <% active_tab = params["controller"] ==  "users/sessions" || params["controller"] ==  "users/registrations"%>
+           <li class='<%= active_tab ? "active" : "" %>'><a href='<%= new_user_session_path %>' class='<%= active_tab ? "active" : "" %>'><span>My Account</span></a></li>
+          <% end%>
+          </li>
+          <li class='<%= @action == "contact_us" ? "active" : "" %>'><a href='<%= contact_us_url %>'  class='<%= @action == "contact_us" ? "active last" : "last" %>'><span>Contact Us</span></a></li>
+          </ul>
+            </div>
+            
+        </nav>
+    </div>

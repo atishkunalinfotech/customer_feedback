@@ -1,0 +1,43 @@
+ <script type="text/javascript">
+ var RecaptchaOptions = {
+    theme : 'white'
+ };
+ </script>
+<div id="header-area">
+  <% flash.each do |key, value| %>
+     <div class="alert-box <%= key %>">
+      <% if key == :alert %>
+        <img src="/assets/wrong.png" style="float:left;margin:-7px 5px 0px -19px;">
+      <% else %>
+        <img src="/assets/right.png" style="float:left;margin:-7px 5px 0px -19px;">
+      <% end %>
+      <div> <%= value %></div></div>
+  <% end %>
+  
+
+      <div id="logo"><a href="<%= root_path %>"><img src="/assets/xema-logo.png" alt="" title="Xema Xema"></a></div>
+        <div id="right-head">
+          <div class="join-us">Join us on</div>
+            <div class="user-box">
+            <% if user_signed_in? %>
+              <div class="user">Hello <%= current_user.preferred_alias %></div>
+              <div class="logout"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'signin-link'  %></div>
+            <% else %>
+               <div class="user2"> <%= link_to "Login", new_user_session_path %> / <%= link_to "Register", new_user_registration_path %></div>
+            <% end %>
+              <div class="social">
+                  <ul>
+                      <li style="margin-left:0px;"><a href="https://www.facebook.com/" target="_blank"><img src="/assets/icon-fb.png" alt="" title="Facebook"></a></li>
+                        <li><a href="https://twitter.com/" target="_blank"><img src="/assets/icon-tw.png" alt="" title="Twitter" ></a></li>
+                        <li><a href=" https://plus.google.com" target="_blank"><img src="/assets/icon-gp.png" alt="" title="Google Plus"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="search-box">
+           <form action="/search" method="get">
+              <input type="text" class="search-in" placeholder="SEARCH" name="search" id="searchh"><input type="submit" class="search-btn" value="">
+          </form>
+            </div>
+        </div>
+    </div>
+

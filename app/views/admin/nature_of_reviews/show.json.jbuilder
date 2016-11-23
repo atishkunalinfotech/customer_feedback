@@ -1,0 +1,1 @@
+json.partial! "admin_nature_of_reviews/admin_nature_of_review", admin_nature_of_review: @admin_nature_of_review
